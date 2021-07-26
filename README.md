@@ -1,2 +1,0 @@
-# DotnetSeleniumDemo
-dotnet-selenium
