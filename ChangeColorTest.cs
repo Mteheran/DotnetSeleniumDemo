@@ -12,20 +12,20 @@ namespace dotnetseleniumdemo
 {    public class ChangeColorTest
     {
         public IWebDriver driver;
-        private readonly IConfiguration config;
+        private readonly string site;
 
         
         public ChangeColorTest()
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            config = ConfigutationManager.InitConfiguration();
+            site = "https://mango-flower-00e2aa010.azurestaticapps.net/";
         }
 
         [Fact]
         public void ChangeToBlueColor()
         {
-            driver.Navigate().GoToUrl(config["site"]);
+            driver.Navigate().GoToUrl(site);
             System.Threading.Thread.Sleep(1000);
             var blueBox =  driver.FindElement(By.ClassName("color-blue"));
             blueBox.Click();
@@ -39,7 +39,7 @@ namespace dotnetseleniumdemo
         [Fact]
         public void ChangeToGreenColor()
         {
-            driver.Navigate().GoToUrl(config["site"]);
+            driver.Navigate().GoToUrl(site);
             System.Threading.Thread.Sleep(1000);
             var blueBox =  driver.FindElement(By.ClassName("color-green"));
             blueBox.Click();
